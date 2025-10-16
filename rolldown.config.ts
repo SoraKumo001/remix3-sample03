@@ -5,7 +5,7 @@ export default [
   defineConfig({
     input: { bundle: "./src/client.tsx" },
     output: {
-      dir: "dist",
+      dir: "public",
       entryFileNames: "[name].js",
     },
     resolve: {
@@ -16,10 +16,10 @@ export default [
     },
   }),
   defineConfig({
-    input: { server: "./src/server.tsx" },
+    input: ["./src/server.tsx"],
     output: {
       dir: "dist",
-      entryFileNames: "[name].js",
+      entryFileNames: "index.js",
     },
     external: (id) => builtinModules.includes(id),
     resolve: {

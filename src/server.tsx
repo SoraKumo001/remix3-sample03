@@ -1,8 +1,8 @@
-import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { renderToStream } from "@remix-run/dom/server";
 import { Layout } from "./root";
 import { serveStatic } from "@hono/node-server/serve-static";
+import { serve } from "@hono/node-server";
 
 const app = new Hono();
 app.get("/", () => {
@@ -12,7 +12,7 @@ app.get("/", () => {
     },
   });
 });
-app.use("*", serveStatic({ root: "./dist" }));
+app.use("*", serveStatic({ root: "./public" }));
 
 serve(app);
 
